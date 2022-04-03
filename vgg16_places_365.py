@@ -21,8 +21,8 @@ from keras.regularizers import l2
 from keras.layers.core import Dropout
 from keras.layers import GlobalAveragePooling2D
 from keras.layers import GlobalMaxPooling2D
-from keras_applications.imagenet_utils import _obtain_input_shape
-from keras.engine.topology import get_source_inputs
+from keras.applications.imagenet_utils import obtain_input_shape #
+from keras.utils.layer_utils import get_source_inputs #
 from keras.utils.data_utils import get_file
 from keras.utils import layer_utils
 from keras.preprocessing import image
@@ -95,7 +95,7 @@ def VGG16_Places365(include_top=True, weights='places',
 
 
     # Determine proper input shape
-    input_shape = _obtain_input_shape(input_shape,
+    input_shape = obtain_input_shape(input_shape,
                                       default_size=224,
                                       min_size=48,
                                       data_format=K.image_data_format(),
